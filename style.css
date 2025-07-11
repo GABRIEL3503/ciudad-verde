@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   font-family: "Nunito", sans-serif;
@@ -119,12 +123,14 @@ footer {
   margin-top: 60px;
   font-size: 0.9rem;
 }
-
+#mapa h2{
+  margin-bottom: 12px;
+  color: white;
+}
 .mapa-container {
     display: flex
 ;
     padding: 60px 20px;
-    max-width: 1000px;
     margin: auto;
     flex-direction: column;
     align-items: center;
@@ -268,7 +274,12 @@ button:hover {
   color: #fafafa;
   margin-bottom: 30px;
 }
-
+.mapa-container{
+    background-image: url('img/backgr.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 #noticias {
   background-image: url('img/backgr.png');
   background-size: cover;
@@ -353,7 +364,6 @@ button:hover {
   text-decoration: underline;
 }
 
-/* CALCULO IMPACTO */
 #calculo-impacto {
   padding: 300px;
 }
@@ -373,6 +383,11 @@ button:hover {
   #menu-btn {
     display: block;
   }
+  hero-img {
+    width: 404px;
+}
+
+
 
   nav {
     display: none;
@@ -416,6 +431,6 @@ button:hover {
   }
 
   #calculo-impacto {
-    padding: 100px;
+    padding: 18px;
   }
 }
