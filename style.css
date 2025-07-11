@@ -378,12 +378,15 @@ button:hover {
     gap: 48px;
     flex-direction: row;
 }
+.img-map{
+  width: 100px;
+}
 
 @media screen and (max-width: 768px) {
   #menu-btn {
     display: block;
   }
-  hero-img {
+  .hero-img {
     width: 404px;
 }
 
