@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <title>Ciudad Verde</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <header>
+  <div class="logo">Ciudad Verde</div>
+
+  <button id="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="menu">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#mapa">Mapa</a></li>
+      <li><a href="#reciclar">Qué y cómo reciclar</a></li>
+      <li><a href="#formulario">Formulario</a></li>
+      <li><a href="#noticias">Noticias</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <main>
+ <section id="inicio" class="hero">
+  <span class="hero-span">
+      <h1>Encontrá tu <span class="verde">Punto Verde</span> más cercano</h1>
+      <p>Conocé cómo separar y entregar tus reciclables. Ayudá al planeta desde tu casa.</p>
+      <a href="#mapa" class="btn">Ver mapa de reciclaje</a>
+      </span>
+      <img class="hero-img" src="img/hero.png" alt="">
+    </section>
+        <section id="reciclar" class="reciclar-container">
+      <h1>¿Qué y cómo reciclar?</h1>
+      <p class="intro">Conocé los materiales reciclables y cómo prepararlos correctamente para su recolección.</p>
+      <div class="materiales">
+        <div class="material-card">
+          <img src="img/plastico.png" alt="Plástico">
+          <h2>Plástico</h2>
+          <p>Lavalo y aplastalo para reducir el volumen.</p>
+        </div>
+        <div class="material-card">
+          <img src="img/papel.png" alt="Papel">
+          <h2>Papel</h2>
+          <p>Evitá papeles sucios o con grasa.</p>
+        </div>
+        <div class="material-card">
+          <img src="img/carton.png" alt="Cartón">
+          <h2>Cartón</h2>
+          <p>Seco, limpio y doblado.</p>
+        </div>
+        <div class="material-card">
+          <img src="img/vidrio.png" alt="Vidrio">
+          <h2>Vidrio</h2>
+          <p>Entero, sin tapas ni etiquetas si es posible.</p>
+        </div>
+        <div class="material-card">
+          <img src="img/metal.png" alt="Metal">
+          <h2>Metales</h2>
+          <p>Enjuagá latas y compactalas si podés.</p>
+        </div>
+      </div>
+    </section>
+   
+
+    <!-- MAPA -->
+    <section id="mapa" class="mapa-container">
+      <h1>Mapa de Puntos Verdes</h1>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.510439235098!2d-69.2311948!3d-38.93516579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960c68fa95687f9d%3A0xe6844ec0fdf3abcd!2sAv.%20del%20Trabajo%2C%20Q8322%20Cutral%20Co%2C%20Neuqu%C3%A9n!5e0!3m2!1ses-419!2sar!4v1751069474763!5m2!1ses-419!2sar" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+      <div class="puntos-verdes">
+        <article class="punto">
+          <h2>📍 Plaza Central</h2>
+          <p><strong>Dirección:</strong> Av. Libertad y San Martín</p>
+          <p><strong>Horario:</strong> Lunes a viernes de 9 a 18 hs</p>
+          <p><strong>Recibe:</strong> Plásticos, papel, cartón, vidrio</p>
+        </article>
+
+        <article class="punto">
+          <h2>📍 Escuela N°12</h2>
+          <p><strong>Dirección:</strong> Calle Belgrano 1234</p>
+          <p><strong>Horario:</strong> Lunes a sábado de 8 a 20 hs</p>
+          <p><strong>Recibe:</strong> Papel, cartón</p>
+        </article>
+      </div>
+    </section>
+<section id="calculo-impacto">
+  <h2> Cálculo de Impacto y Solicitud de Retiro</h2>
+
+  <form id="form-retiro" onsubmit="return validarTodo();">
+    <label for="txObjeto">Objeto reciclado:</label>
+    <select id="txObjeto">
+      <option value="">Seleccione</option>
+      <option value="BOTELLA">Botella plástica</option>
+      <option value="LATA">Lata de aluminio</option>
+      <option value="HOJA">Hoja A4</option>
+    </select>
+
+    <label for="txCantidad">Cantidad de objetos:</label>
+    <input type="number" id="txCantidad" min="1" step="1">
+
+    <!-- RESULTADO CALCULADO -->
+    <p id="resultado" style="font-weight:bold; margin-top:10px;"></p>
+
+    <hr style="margin: 30px 0;">
+
+    <label for="nombre">Nombre y Apellido:</label>
+    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" placeholder="Calle 123, Ciudad" required>
+
+    <label for="fecha">Fecha preferida de retiro:</label>
+    <input type="date" id="fecha" required>
+
+    <label for="telefono">Teléfono de contacto (opcional):</label>
+    <input type="tel" id="telefono" placeholder="299-123-4567" pattern="^[0-9\\-+\\s]{7,15}$">
+
+<button type="button" onclick="validarTodo()">Calcular y enviar</button>
+  </form>
+
+  <div id="errores" style="color:red; font-weight:bold; padding:10px; margin-top:20px;"></div>
+</section>
+
+    <section id="noticias" class="noticias-container">
+      <h2 class="noticias">Noticias, campañas y talleres</h2>
+      <div class="noticias-lista">
+        <article class="noticia">
+          <h2>Taller de reciclaje en escuelas</h2>
+          <p>Una iniciativa para enseñar a estudiantes de nivel primario cómo separar residuos y reutilizar materiales.</p>
+        </article>
+        <article class="noticia">
+          <h2>Feria ambiental en la plaza central</h2>
+          <p>Charlas, juegos y stands informativos sobre reciclaje, compostaje y consumo responsable.</p>
+        </article>
+        <article class="noticia">
+          <h2>Campaña de recolección de electrónicos</h2>
+          <p>Se habilitan nuevos puntos verdes para dejar pilas, celulares y electrodomésticos en desuso.</p>
+        </article>
+      </div>
+    </section>
+
+   
+    <section id="contacto" class="contacto-container">
+      <h1>Contacto e información institucional</h1>
+      <div class="info-institucional">
+        <p><strong>Área responsable:</strong> Dirección de Medio Ambiente</p>
+        <p><strong>Correo electrónico:</strong> medioambiente@ciudadverde.gob.ar</p>
+        <p><strong>Teléfono:</strong> (0299) 456-7890</p>
+        <p><strong>Dirección:</strong> Av. Ecológica 123 - Ciudad Verde</p>
+      </div>
+
+      <div class="descripcion-proyecto">
+        <h2>Sobre la iniciativa</h2>
+        <p>Ciudad Verde es un programa municipal que promueve la separación de residuos, la educación ambiental y el acceso de los vecinos a recursos de reciclaje. A través de Puntos Verdes, talleres y recolección domiciliaria, buscamos una ciudad más limpia y comprometida con el futuro del planeta.</p>
+      </div>
+
+      <div class="redes-sociales">
+        <h2>Seguinos en nuestras redes</h2>
+        <ul>
+          <li><a href="#">🌐 Facebook</a></li>
+          <li><a href="#">📷 Instagram</a></li>
+          <li><a href="#">🐦 Twitter</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Ciudad Verde. Iniciativa educativa para la conciencia ambiental Jorge Gabriel Medina>
+  </footer>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
